@@ -1,0 +1,58 @@
+<!-- index.wxml -->
+<view class="container">
+  <image bindtap="intoCreategame" class="field-image" src="../../image/field.png" mode="widthFix"></image>
+  <text class="create-game">点击+号创建新的比赛通知</text>
+  <view wx:if="{{matches.length==0}}" class="view-empty">
+    <image class="empty-image" src="../../image/emptyImage.png" mode="widthFix"></image>
+    <text class="empty-text">快创建比赛吧，队友们都等不及了!</text>
+  </view>
+  <view wx:else class="item-else">
+    <view wx:for="{{matches}}" wx:for-item="match" class="item-all" bindtap="intoDetail" data-matchid="{{match.matchId}}" data-position="{{index}}">
+      <view class="item-time">
+        <text class="text-left"></text>
+        <text class="text-time">{{matchDate[index]}}</text>
+        <text wx:if="{{isDoing[index]=='true'}}" class="text-enter">报名中</text>
+        <text wx:else class="text-enter-end">已结束</text>
+      </view>
+      <view class="item-field">
+        <image class="field-pic" src="../../image/fieldPosition.png" mode="aspectFit"></image>
+        <text class="field-text">{{match.pitchName}}</text>
+      </view>
+      <view class="item-team">
+        <view class="team-left">
+          <image wx:if="{{match.teamAcolor=='蓝色'}}" src="../../image/blueJersey.png" class="team-left-pic" mode="aspectFit"></image>
+          <image wx:elif="{{match.teamAcolor=='黄色'}}" src="../../image/yellowJersey.png" class="team-left-pic" mode="aspectFit"></image>
+          <image wx:elif="{{match.teamAcolor=='绿色'}}" src="../../image/greenJersey.png" class="team-left-pic" mode="aspectFit"></image>
+          <image wx:elif="{{match.teamAcolor=='紫色'}}" src="../../image/purpleJersey.png" class="team-left-pic" mode="aspectFit"></image>
+          <image wx:elif="{{match.teamAcolor=='白色'}}" src="../../image/whiteJersey.png" class="team-left-pic" mode="aspectFit"></image>
+          <image wx:elif="{{match.teamAcolor=='黑色'}}" src="../../image/blackJersey.png" class="team-left-pic" mode="aspectFit"></image>
+          <image wx:elif="{{match.teamAcolor=='橙色'}}" src="../../image/orangeJersey.png" class="team-left-pic" mode="aspectFit"></image>
+          <image wx:elif="{{match.teamAcolor=='灰色'}}" src="../../image/grayJersey.png" class="team-left-pic" mode="aspectFit"></image>
+          <image wx:else src="../../image/redJersey.png" class="team-left-pic" mode="aspectFit"></image>
+          <text class="team-left-text">{{match.teamAname}}</text>
+        </view>
+        <view class="team-center">
+          <view class="team-center-top-view">
+            <text>VS</text>
+          </view>
+          <view class="team-center-bottom-view">
+            <text>{{matchTime[index]}}</text>
+          </view>
+        </view>
+        <view class="team-left">
+          <image wx:if="{{match.teamBcolor=='蓝色'}}" src="../../image/blueJersey.png" class="team-left-pic" mode="aspectFit"></image>
+          <image wx:elif="{{match.teamBcolor=='黄色'}}" src="../../image/yellowJersey.png" class="team-left-pic" mode="aspectFit"></image>
+          <image wx:elif="{{match.teamBcolor=='绿色'}}" src="../../image/greenJersey.png" class="team-left-pic" mode="aspectFit"></image>
+          <image wx:elif="{{match.teamBcolor=='紫色'}}" src="../../image/purpleJersey.png" class="team-left-pic" mode="aspectFit"></image>
+          <image wx:elif="{{match.teamBcolor=='白色'}}" src="../../image/whiteJersey.png" class="team-left-pic" mode="aspectFit"></image>
+          <image wx:elif="{{match.teamBcolor=='黑色'}}" src="../../image/blackJersey.png" class="team-left-pic" mode="aspectFit"></image>
+          <image wx:elif="{{match.teamBcolor=='橙色'}}" src="../../image/orangeJersey.png" class="team-left-pic" mode="aspectFit"></image>
+          <image wx:elif="{{match.teamBcolor=='灰色'}}" src="../../image/grayJersey.png" class="team-left-pic" mode="aspectFit"></image>
+          <image wx:else src="../../image/redJersey.png" class="team-left-pic" mode="aspectFit"></image>
+          <text class="team-left-text">{{match.teamBname}}</text>
+        </view>
+      </view>
+      <view class="item-people-count">{{match.counts}}人已确认参赛</view>
+    </view>
+  </view>
+</view>

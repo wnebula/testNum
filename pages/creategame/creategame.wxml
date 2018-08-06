@@ -1,0 +1,105 @@
+<scroll-view scroll-y="true" class="scrollview-all">
+  <view class="item-view">
+    <text class="text-left">比赛时间</text>
+    <view class="input-right">
+      <picker class="date-left" mode="date" value="{{date}}" bindchange="bindDateChange">{{date}}</picker>
+      |
+      <!-- <text class="line_center">
+      |</text>
+      -->
+      <picker class="time-right" mode="time" value="{{time}}" bindchange="bindTimeChange">{{time}}</picker>
+    </view>
+  </view>
+
+  <view class="item-view">
+    <text class="text-left">球场名</text>
+    <view class="input-right">
+      <input placeholder="请输入场地名称" placeholder-class="inputholder-text" class="input-text" bindblur="fieldNameChange" />
+    </view>
+  </view>
+
+  <view class="item-view" bindtap="openMap">
+    <view class="position-left">
+      <text class="field-position-text">球场位置</text>
+      <image class="field-position" src="../../image/fieldPosition.png" mode="aspectFit"></image>
+    </view>
+    <view class="inter-right">
+      <image src="../../image/interPic.png" class="inter-image" mode="aspectFit"></image>
+    </view>
+  </view>
+
+
+
+
+  <view class="item-view">
+    <text class="text-left">本队队名</text>
+    <view class="input-right">
+      <input placeholder="请输入球队名称" placeholder-class="inputholder-text" class="input-text" bindblur="teamNameChange" />
+    </view>
+  </view>
+
+  <view class="item-view {{isOpen ? 'kind-list-item-hd-show' : ''}}" bindtap="kindToggle">
+    <!-- <view class="item-view"> -->
+    <text class="text-left">本队球衣颜色</text>
+    <view class="inter-right">
+      <image src="../../image/{{jerseyPicName}}" mode="aspectFit" class="jersey-pic"></image>
+    </view>
+    <!-- </view> -->
+    <!-- <image class="kind-list-img" src="resources/kind/{{item.id}}.png"></image> -->
+  </view>
+
+  <view class="kind-list-item-bd {{isOpen ? 'kind-list-item-bd-show' : ''}}">
+    <view class="navigator-box {{isOpen ? 'navigator-box-show' : ''}}">
+      <block wx:for-item="jersey" wx:for="{{jersey}}">
+        <!-- <navigator url="pages/{{page}}/{{page}}" class="navigator"> -->
+        <view class="item-view" bindtap="kindToggle" data-position="{{index}}">
+          <image class="jersey-pic" src="../../image/{{jersey.picName}}" mode="aspectFit"></image>
+          <view class="navigator-text">{{jersey.color}}</view>
+        </view>
+        <!-- </navigator> -->
+      </block>
+    </view>
+  </view>
+
+  <view class="item-view">
+    <text class="text-left">对手队名</text>
+    <view class="input-right">
+      <input placeholder="请输入球队名称" placeholder-class="inputholder-text" class="input-text" bindblur="opponentNameChange" />
+    </view>
+  </view>
+
+
+  <view class="item-view {{isBOpen ? 'kind-list-item-hd-show' : ''}}" bindtap="kindBToggle">
+    <!-- <view class="item-view"> -->
+    <text class="text-left">对手球衣颜色</text>
+    <view class="inter-right">
+      <image src="../../image/{{opponentJerseyPicName}}" mode="aspectFit" class="jersey-pic"></image>
+    </view>
+    <!-- </view> -->
+    <!-- <image class="kind-list-img" src="resources/kind/{{item.id}}.png"></image> -->
+  </view>
+
+  <view class="kind-list-item-bd {{isBOpen ? 'kind-list-item-bd-show' : ''}}">
+    <view class="navigator-box {{isBOpen ? 'navigator-box-show' : ''}}">
+      <block wx:for-item="jersey" wx:for="{{jersey}}">
+        <!-- <navigator url="pages/{{page}}/{{page}}" class="navigator"> -->
+        <view class="item-view" bindtap="kindBToggle" data-position="{{index}}">
+          <image class="jersey-pic" src="../../image/{{jersey.picName}}" mode="aspectFit"></image>
+          <view class="navigator-text">{{jersey.color}}</view>
+        </view>
+        <!-- </navigator> -->
+      </block>
+    </view>
+  </view>
+
+  <view class="item-view" bindtap="interRemark">
+    <view class="position-left">
+      <text class="field-position-text">备注</text>
+    </view>
+    <view class="inter-right">
+      <image src="../../image/interPic.png" class="inter-image" mode="aspectFit"></image>
+    </view>
+  </view>
+
+  <button class="confirm-button" type="primary" bindtap="confirm">确定</button>
+</scroll-view>

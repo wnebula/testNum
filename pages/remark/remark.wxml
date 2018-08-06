@@ -1,0 +1,4 @@
+<view class="note-text">
+  <textarea value = "{{textValue}}" focus="{{isFocus}}" auto-height="true" placeholder="请输入备注信息" placeholder-class="inputholder-text" class="remark-text" bindinput="bindRemark" />
+</view>
+<button class="confirm-button" type="primary" bindtap="confirm">确定</button>

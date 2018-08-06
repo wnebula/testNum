@@ -1,0 +1,26 @@
+.note-text {
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  background-color: #fff;
+  height: 196rpx;
+}
+
+.remark-text {
+  padding-bottom: 20rpx;
+  padding-right: 30rpx;
+  padding-top: 15rpx;
+  padding-left: 30rpx;
+  background-color: #fff;
+  font-size: 30rpx;
+  color: #353535;
+}
+
+.confirm-button {
+  margin-top: 60rpx;
+  margin-left: 38rpx;
+  margin-right: 38rpx;
+  height: 90rpx;
+  font-size: 36rpx;
+  color: #fff;
+}

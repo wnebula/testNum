@@ -1,0 +1,92 @@
+<scroll-view class="item-all" scroll-y="true">
+  <view class="item-time">
+    <text class="text-nouse"></text>
+    <text class="text-time">{{matchDate}}</text>
+    <text wx:if="{{isDoing}}" class="text-enter">报名中</text>
+    <text wx:else class="text-enter-end">已结束</text>
+  </view>
+  <view class="item-field">
+    <image class="field-pic" src="../../image/fieldPosition.png" mode="aspectFit"></image>
+    <text class="field-text">{{pitchName}}</text>
+  </view>
+  <view class="item-team">
+    <view class="team-left">
+      <image src="{{picPath}}" class="team-left-pic" mode="aspectFit"></image>
+      <text class="team-left-text">{{teamAname}}</text>
+    </view>
+    <view class="team-center">
+      <view class="team-center-top-view">
+        <text>VS</text>
+      </view>
+      <view class="team-center-bottom-view">
+        <text>{{matchTime}}</text>
+      </view>
+    </view>
+    <view class="team-left">
+      <image src="{{teamBImg}}" class="team-left-pic" mode="aspectFit"></image>
+      <text class="team-left-text">{{teamBname}}</text>
+    </view>
+  </view>
+  <view class="nouse-line"></view>
+  <view class="player-state">
+    
+    <view class="player-left">
+      <text wx:if="{{isAttends}}" class="text-center-checked">到场</text>
+      <text wx:else class="text-center" bindtap="setAttends">到场</text></view>
+      <view class="player-center">
+      <text wx:if="{{isUncertains}}" class="button-left-checked">待定</text>
+      <text wx:else class="button-left" bindtap="setUncertains">待定</text></view>
+    <view class="player-right">
+      <text wx:if="{{isLeaves}}" class="text-right-checked">请假</text>
+      <text wx:else class="text-right" bindtap="setLeaves">请假</text></view>
+  </view>
+
+  <view class="state-item">
+    <view class="state-item-top-attends">到场{{attends.length}}人</view>
+    <view class="state-content">
+      <view wx:for="{{attends}}" class="item-content" wx:for-item="attend">
+        <image src="{{attend.userImg}}" mode="aspectFit" class="item-pic"></image>
+        <text class="item-text">{{attend.userName}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="state-item">
+    <view class="state-item-top-uncertains">待定{{uncertains.length}}人</view>
+    <view class="state-content">
+      <view wx:for="{{uncertains}}" class="item-content" wx:for-item="uncertain">
+        <image src="{{uncertain.userImg}}" mode="aspectFit" class="item-pic"></image>
+        <text class="item-text">{{uncertain.userName}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="state-item">
+    <view class="state-item-top-leaves">请假{{leaves.length}}人</view>
+    <view class="state-content">
+      <view wx:for="{{leaves}}" class="item-content" wx:for-item="leave">
+        <image src="{{leave.userImg}}" mode="aspectFit" class="item-pic"></image>
+        <text class="item-text">{{leave.userName}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="container">
+    <image src="{{picPath}}" mode="aspectFit" class="team-pic"></image>
+    <text class="team-pic-name">{{teamAcolor}}</text>
+    <text class="team-pic-nouse">本队球衣</text>
+  </view>
+  <view class="item-view" bindtap="openMatchMap">
+    <view class="position-left">
+      <text class="field-position-text">球场位置</text>
+      <image class="field-position" src="../../image/fieldPosition.png" mode="aspectFit"></image>
+    </view>
+    <view class="inter-right">
+      <image src="../../image/interPic.png" class="inter-image" mode="aspectFit"></image>
+    </view>
+  </view>
+  <view class="container-remark">
+    <text class="remark-text-nouse">备注</text>
+    <text class="remark-text">{{remark}}</text>
+  </view>
+  <button wx:if="{{owner}}" class="delete-button" type="warn" bindtap="deleteMatch">取消比赛</button>
+  <button wx:elif="{{ isAttends| isUncertains|isLeaves}}" class="delete-button" type="warn" bindtap="deleteStatu">退出比赛</button>
+  <view wx:else></view>
+</scroll-view>

@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/assistant/assistant",
+    "pages/creategame/creategame",
+    "pages/remark/remark",
+    "pages/matchdetail/matchdetail"
+  ],
+  "tabBar": {
+    "color": "#7f8389",
+    "selectedColor": "#1aa448",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "image/order.png",
+        "selectedIconPath": "image/orderSele.png",
+        "text": "比赛"
+      },
+      {
+        "pagePath": "pages/assistant/assistant",
+        "iconPath": "image/assistant.png",
+        "selectedIconPath": "image/assistantSele.png",
+        "text": "助手"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "寻球",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#f8f8f8"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  }
+}

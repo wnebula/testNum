@@ -1,0 +1,18 @@
+<view class="container-my">
+    <view class="user-info-my">
+        <image class="userinfo-avatar-my" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+        <text class="userinfo-nickname-my">{{userInfo.nickName}}</text>
+    </view>
+    <view class="view-column">
+        <view class="view-row">
+            <text class="text-left">反馈</text>
+            <contact-button class="text-right">
+            </contact-button>
+        </view>
+        <view class="nouse-line"></view>
+        <view class="view-row">
+            <text class="text-left">版本号</text>
+            <text class="text-right">v1.0.2</text>
+        </view>
+    </view>
+</view>
